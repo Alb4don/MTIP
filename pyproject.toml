@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mtip"
+dynamic = ["version"]
+description = "Mobile Threat Intelligence Correlation Platform"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "stix2>=3.0,<4",
+  "taxii2-client>=2.3,<3",
+  "networkx>=3.2",
+  "pandas>=2.1",
+  "numpy>=1.26",
+  "rapidfuzz>=3.5",
+  "fastapi>=0.110",
+  "uvicorn>=0.27",
+  "requests>=2.31",
+]
+
+[project.optional-dependencies]
+desktop = ["PySide6>=6.6"]
+test = ["pytest>=8", "pytest-bdd>=7", "hypothesis>=6.100", "httpx>=0.27"]
+
+[project.scripts]
+mtip = "mtip.__main__:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "mtip.__version__" }
+
+[tool.setuptools.packages.find]
+include = ["mtip*"]
+
+[tool.setuptools.package-data]
+mtip = ["data/*.dat", "api/static/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="mtip-token" content="__MTIP_TOKEN__">
+<meta name="mtip-version" content="__MTIP_VERSION__">
+<title>Mobile Threat Correlation</title>
+<link rel="stylesheet" href="/static/styles.css">
+<script type="module" src="/static/app.js"></script>
+</head>
+<body>
+<div class="shell">
+  <nav class="rail" aria-label="Sections">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">MTIP</span>
+    </div>
+    <a href="#overview" data-view="overview">Overview</a>
+    <a href="#indicators" data-view="indicators">Indicators</a>
+    <a href="#inferences" data-view="inferences">Inferences</a>
+    <a href="#graph" data-view="graph">Campaign graph</a>
+    <a href="#sources" data-view="sources">Sources</a>
+    <a href="#import" data-view="import">Import</a>
+    <a href="#reports" data-view="reports">Reports</a>
+    <div class="legend" aria-label="Legend">
+      <div><span class="line documented"></span>Documented by a source</div>
+      <div><span class="line inferred"></span>Statistical inference</div>
+      <div><span class="line conflict"></span>Conflicts with a source</div>
+    </div>
+    <div class="version">v__MTIP_VERSION__</div>
+  </nav>
+  <div class="main">
+    <header class="topbar">
+      <h1 id="view-title">Overview</h1>
+      <div class="run">
+        <span id="run-status" class="run-status" role="status" aria-live="polite">Loading…</span>
+        <button id="run-btn" class="btn primary" type="button">Run correlation</button>
+      </div>
+    </header>
+    <main id="view" tabindex="-1"></main>
+  </div>
+</div>
+<aside id="drawer" class="drawer" aria-hidden="true" aria-labelledby="drawer-title">
+  <div class="drawer-head">
+    <h2 id="drawer-title">Details</h2>
+    <button id="drawer-close" class="btn ghost" type="button" aria-label="Close details">Close</button>
+  </div>
+  <div id="drawer-body" class="drawer-body"></div>
+</aside>
+<div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+</body>
+</html>
